@@ -13,7 +13,7 @@ router.post('/', (req, res) => {
   if(!name || !description) {
     res
       .status(400)
-      .json({ errorMessage: "Please provide name and description for the post." })
+      .json({ errorMessage: "Please provide name and description for the project." })
   } else {
     Projects.insert(req.body)
       .then(project => {
@@ -40,6 +40,20 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/:id/actions', (req, res) => {
+  const { id } = req.params;
+
+  Projects.getProjectActions(id)
+    .then(projectActions => {
+      res.status(200).json(projectActions);
+    })
+    .catch(() => {
+      res.status(500).json({
+        error: "The projects actions could not be retrieved."
+      });
+    });
+});
+
 //The U in CRUD
 router.put('/:id', (req, res) => {
   const { name, description } = req.body;
@@ -47,7 +61,7 @@ router.put('/:id', (req, res) => {
   if(!name || !description) {
     res
       .status(400)
-      .json({ errorMessage: "Please provide name and description for the post." })
+      .json({ errorMessage: "Please provide name and description for the project." })
   } else {
     Projects.update(req.params.id, req.body)
      .then(project => {
