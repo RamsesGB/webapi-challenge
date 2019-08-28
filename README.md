@@ -24,15 +24,25 @@ In this challenge, create a web API around the following resources: `Projects` a
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Mention two parts of Express that you learned about this week.
+- [x] Mention two parts of Express that you learned about this week.
 
-- [ ] Describe Middleware?
+  - Express is like React for the backend. It adds extra functionality like Routing and Middleware support.
 
-- [ ] Describe a Resource?
+- [x] Describe Middleware?
 
-- [ ] What can the API return to help clients know if a request was successful?
+  - Middleware is the biggest part of express. In fact, the route handlers we write are considered middleware under the hood. Middleware can be used to add features to our application. Helmet for example adds security to our server. There are 3 types of middleware : Built-in, third-party, and custom.
 
-- [ ] How can we partition our application into sub-applications?
+- [x] Describe a Resource?
+
+  - When designing a RESTful Web API one should keep in mind that everything is a resource. Each resource is accesible via unique URL. Management of these resources is done via HTTP methods. In the case of this project one would consider the projects and each of their actions as resources.
+
+- [x] What can the API return to help clients know if a request was successful?
+
+  - HTTP Status Codes
+
+- [x] How can we partition our application into sub-applications?
+
+  - We can partion our application utilizing routers. Allowing us to break up the code into seperate files that are compartmentalized according to the resource they are managing.
 
 ## Project Setup
 
